@@ -17,9 +17,9 @@ Pelissä on yhdenlaisia käyttäjiä.
 * Sovelluksessa on aloitusruutu, jossa voi tarkastella pistetaulukkoa tai siirtyä pelaamaan.
 
 
-##Jatkokehitysideoita
-*Kaksinpeli (esim. aikarajalla+kumpi kerää enemmän pisteitä)
-*Erikoispavut lisäominaisuuksilla
-*Tallennus ja mahdollisuus jatkaa peliä myöhemmin
+## Jatkokehitysideoita
+* Kaksinpeli (esim. aikarajalla+kumpi kerää enemmän pisteitä)
+* Erikoispavut lisäominaisuuksilla
+* Tallennus ja mahdollisuus jatkaa peliä myöhemmin
 
 
