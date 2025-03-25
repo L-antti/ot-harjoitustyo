@@ -4,8 +4,9 @@ Kurssilla toteutetaan harjoitustyönä **sovellus**, jolla on graafinen käyttö
 
 Laskarit löytyy [täältä](https://github.com/L-antti/ot-harjoitustyo/tree/main/laskarit)
 
-## Vaatimusmäärittely
-*
+## Dokumentaatio
+* [Vaatimusmäärittely](https://github.com/L-antti/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+* [Työaikakirjanpito](https://github.com/L-antti/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 *
 *
 *
