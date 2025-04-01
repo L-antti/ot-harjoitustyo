@@ -19,3 +19,7 @@ Ammu papuja ja kerää pisteitä!
    ```bash
    poetry install
    ```
+3. **Käynnistä sovellus**:
+   ```bash
+   poetry run invoke start
+   ```
