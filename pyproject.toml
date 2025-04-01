@@ -2,9 +2,7 @@
 name = "pygame-beanshooter"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "L-antti",email = "laura.k.anttila@gmail.com"}
-]
+authors = ["L-antti <laura.k.anttila@gmail.com>"]
 readme = "README.md"
 requires-python = "^3.10"
 dependencies = [
