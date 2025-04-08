@@ -1,56 +1,27 @@
 import pygame
-import math
-from sprites.launcher import Launcher
-from sprites.bean import Bean
+from game_area import initialize_display, initialize_launcher
+from menu import run_menu
+from game_loop import run_game
 from clock import Clock
 
 
 def main():
-    window_width = 400
-    window_height = 800
-    display= pygame.display.set_mode((window_width, window_height))
-    pygame.display.set_caption("BEANSHOOTER")
-
     pygame.init()
 
     clock = Clock()
 
-    running = True
-    launcher = Launcher((window_width//2, window_height-50))
+    display = initialize_display()
 
-    beans = pygame.sprite.Group()
+    start_game = run_menu(display)
+    if not start_game:
+        pygame.quit()
+        return
 
+    launcher = initialize_launcher()
 
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+    run_game(display, launcher, clock)
 
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT]:
-            launcher.rotate(2)
-        if keys[pygame.K_RIGHT]:
-            launcher.rotate(-2)
-        if keys[pygame.K_UP]:
-            angle_rad = math.radians(launcher.angle)
-            new_bean = Bean((255, 255, 0), launcher.position)
-            new_bean.velocity = [5 * math.cos(angle_rad), -5 * math.sin(angle_rad)]
-            beans.add(new_bean)
-
-        beans.update()
-
-        display.fill((0, 0, 0)) 
-        launcher.draw(display)
-
-
-
-        beans.draw(display) 
-        pygame.display.flip()
-
-        clock.tick(60)
-
-
-
+    pygame.quit()
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 import unittest
 from sprites.launcher import Launcher
 
+
 class TestLauncher(unittest.TestCase):
     def setUp(self):
         self.launcher = Launcher((200, 400))
@@ -19,4 +20,6 @@ class TestLauncher(unittest.TestCase):
         self.launcher.rotate(-200)
         self.assertEqual(self.launcher.angle, 10)
 
-        
+
+if __name__ == "__main__":
+    unittest.main()
