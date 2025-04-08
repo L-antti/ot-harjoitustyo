@@ -7,12 +7,12 @@ Sovellus on bubbleshooter tyylinen peli, jossa ammutaan papuja. Vierekkäin ammu
 Pelissä on yhdenlaisia käyttäjiä.
 
 ## Suunnitellut toiminnallisuudet
-* Pelissä on viisi eri väristä papua.
+* Pelissä on viisi eri väristä papua. TEHTY
 * Papuja ammutaan, kunnes kriittinen raja ruudun alareunassa ylittyy.
-* Tähtäys ja ammunta tapahtuvat nuolinäppäimillä.
+* Tähtäys ja ammunta tapahtuvat nuolinäppäimillä. TEHTY
 * Pelialueen yläreunaan lisätään yksi rivi papuja, jossei kolmeen kierrokseen saa osumaa samanväriseen papuun.
-* Pisteitä saa kolmen tai usemman papun yhdistämisestä.
-* Pisteet näkyvät pelialueen vieressä.
+* Pisteitä saa kolmen tai usemman papun yhdistämisestä. TEHTY
+* Pisteet näkyvät pelialueen vieressä. TEHTY
 * Pelin päätyttyä pisteet kirjataan pistetaulukkoon.
 * Sovelluksessa on aloitusruutu, jossa voi tarkastella pistetaulukkoa tai siirtyä pelaamaan.
 
