@@ -8,3 +8,6 @@
 | 30.3. | 2 | Pelin rungon ja laukaisimen toteutus |
 | 1.4. | 1 | Papujen toteutus |
 | | 1 |  Dokumentaation päivitys |
+| 6.4. | 2 |  Papujen kiinnittyminen toisiinsa |
+| 7.4.| 5  |  Pelin toimintoje jakamine omiin tiedostoihin, pisteiden laskun toteutus|
+| 8.4.| 4 |  Naapuroivien papujen mekaniikan muokkaus, testien tekeminen |
