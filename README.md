@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-## BEANSHOOTER
+## BEAN SHOOTER
 Ammu papuja ja kerää pisteitä!
 
 ## Dokumentaatio
@@ -24,3 +24,22 @@ Ammu papuja ja kerää pisteitä!
    ```bash
    poetry run invoke start
    ```
+
+   
+### Komentorivitoiminnot
+
+* **Käynnistää sovelluksen**:
+   ```bash
+   poetry run invoke start
+   ```
+* **Suorittaa pytestit**:
+  ```bash
+   poetry run invoke test
+   ```
+* **Luo testikattavuus raportin _htmlcov_-hakemistoon**:
+   ```bash
+   poetry run invoke coverage-report
+   ```
+* **Suorittaa Pylint tarkistukset**:
+   ```bash
+   poetry run invoke lint
