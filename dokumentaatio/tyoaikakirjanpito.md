@@ -13,3 +13,4 @@
 | 8.4.| 4 |  Naapuroivien papujen mekaniikan muokkaus, testien tekeminen |
 | 14.4.| 6 |  Pelimekaniikan päivitys naapuroivien papujen poistoon |
 | 15.4.| 10 | Luokkien refaktorointi  |
+| | 34 | Tunnit yhteensä  |
