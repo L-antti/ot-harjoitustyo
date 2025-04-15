@@ -8,9 +8,9 @@ Pelissä on yhdenlaisia käyttäjiä.
 
 ## Suunnitellut toiminnallisuudet
 * Pelissä on viisi eri väristä papua. TEHTY
-* Papuja ammutaan, kunnes kriittinen raja ruudun alareunassa ylittyy.
+* Papuja ammutaan, kunnes kriittinen raja ruudun alareunassa ylittyy. TEHTY
 * Tähtäys ja ammunta tapahtuvat nuolinäppäimillä. TEHTY
-* Pelialueen yläreunaan lisätään yksi rivi papuja, jossei kolmeen kierrokseen saa osumaa samanväriseen papuun.
+* Pelialueen yläreunaan lisätään yksi rivi papuja, jossei kolmeen kierrokseen saa osumaa samanväriseen papuun. TEHTY
 * Pisteitä saa kolmen tai usemman papun yhdistämisestä. TEHTY
 * Pisteet näkyvät pelialueen vieressä. TEHTY
 * Pelin päätyttyä pisteet kirjataan pistetaulukkoon.
