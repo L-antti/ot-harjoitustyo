@@ -1,70 +1,40 @@
 import math
 import pygame
-from settings import SCREEN_WIDTH
+from settings import BEAN_DEFAULT_SPEED
 
 
 class Bean(pygame.sprite.Sprite):
     def __init__(self, color, position):
         super().__init__()
-        self.image = pygame.Surface(
-            (40, 40), pygame.SRCALPHA)
+        self.color = color
+        self.image = pygame.Surface((40, 40), pygame.SRCALPHA)
         pygame.draw.circle(self.image, color, (20, 20), 20)
         self.rect = self.image.get_rect(center=position)
         self.velocity = [0, 0]
-        self.attached = False
         self.radius = 20
-        self.neighbours = []
+        self.neighbours = pygame.sprite.Group()
 
-    def update(self, beans):
-        self.rect.x += self.velocity[0]
-        self.rect.y += self.velocity[1]
-
-        if self.rect.left <= 0 or self.rect.right >= SCREEN_WIDTH:
-            self.velocity[0] *= -1
-
-        if self.rect.top <= 0:
-            self.velocity = [0, 0]
-            self.attached = True
-            self.add_neighbors(beans)
-
-        for other_bean in beans:
-            if self != other_bean and self.check_collision(other_bean):
-                self.velocity = [0, 0]
-                self.attached = True
-                self.add_neighbors(beans)
-
-    def shoot(self, angle):
+    def set_velocity(self, angle):
         angle_rad = math.radians(angle)
-        self.velocity = [5 * math.cos(angle_rad), -5 * math.sin(angle_rad)]
+        self.velocity = [BEAN_DEFAULT_SPEED * math.cos(angle_rad),
+                         -BEAN_DEFAULT_SPEED * math.sin(angle_rad)]
 
-    def check_collision(self, other_bean):
-        distance = math.sqrt(
-            (self.rect.centerx - other_bean.rect.centerx) ** 2 +
-            (self.rect.centery - other_bean.rect.centery) ** 2
-        )
-        return distance < (self.radius + other_bean.radius)
+    def update_neighbours(self, beans_group):
+        self.neighbours.empty()
 
-    def add_neighbors(self, beans):
-        self.neighbours = [
-            other_bean for other_bean in beans
-            if self != other_bean and self.check_collision(other_bean)
-        ]
+        for bean in beans_group:
+            if bean != self and pygame.sprite.collide_circle_ratio(1.2)(self, bean):
+                self.neighbours.add(bean)
 
-    @staticmethod
-    def check_color_groups(beans):
-        beans_to_remove = set()
+    def attach(self, beans_group):
+        beans_group.add(self)
+        self.update_neighbours(beans_group)
 
-        for bean in beans:
-            if bean.attached:
-                same_color_neighbours = [
-                    neighbour for neighbour in bean.neighbours
-                    if neighbour.image.get_at((20, 20)) == bean.image.get_at((20, 20))
-                ]
+    def update_position(self, y_spacing):
+        self.rect.y += y_spacing
 
-                cluster = [bean] + same_color_neighbours
+    def __hash__(self):
+        return id(self)
 
-                if len(cluster) >= 3:
-                    beans_to_remove.add(bean)
-                    beans_to_remove.update(cluster)
-
-        return list(beans_to_remove)
+    def __eq__(self, other):
+        return self is other

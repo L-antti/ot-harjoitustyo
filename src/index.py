@@ -1,25 +1,15 @@
 import pygame
-from game_area import initialize_display, initialize_launcher
-from menu import run_menu
-from game_loop import run_game
-from clock import Clock
+from game_controller import GameController
+from settings import SCREEN_HEIGHT, SCREEN_WIDTH
 
 
 def main():
     pygame.init()
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    pygame.display.set_caption("Bean Shooter")
 
-    clock = Clock()
-
-    display = initialize_display()
-
-    start_game = run_menu(display)
-    if not start_game:
-        pygame.quit()
-        return
-
-    launcher = initialize_launcher()
-
-    run_game(display, launcher, clock)
+    game_controller = GameController(screen)
+    game_controller.run()
 
     pygame.quit()
 
