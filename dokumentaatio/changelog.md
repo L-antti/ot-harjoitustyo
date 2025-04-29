@@ -16,3 +16,9 @@
 * Game over -ilmoitus, jos papvut ylittvät kriittisen rajan
 * Koodi on jaettu kokonaan uusiin luokkiin: GameUI, GameArea, GameController, GameLogic, GameState
 * Testattu hieman GameArea, GameState, GameLogic ja GameUI luokkien toimintaa
+
+## Viikko 6
+* Pelaajan pisteet päivitetään pelin päätyttyä High Score tiedostoon.
+* Lisätty HighscoreManager luokka.
+* Koodia refaktoroitu lisää. Sovelluslogiikka eriytetty käyttöliittymästä ja pelinohjauksesta.
+* Lisää testejä GameLogic ja GameController luokille.
