@@ -84,4 +84,37 @@ Bean --> Bean : neighbours
 
 
 ```
+```mermaid
+sequenceDiagram
+    participant Player
+    participant GameController
+    participant Launcher
+    participant GameLogic
+    participant Bean
+    participant GameArea
+    participant GameUI
 
+    Player->>GameController: Näppäinpainallus (ampuu)
+    GameController->>Launcher: rotate() / laukaisu
+    Launcher-->>GameController: kulma ja suunta
+
+    GameController->>GameLogic: launch_next_bean(launcher)
+    GameLogic->>Bean: määritä nopeus ja suunta
+    Bean-->>GameLogic: valmis Bean-olio
+
+    GameLogic->>GameArea: lisää papu alueelle
+    GameArea-->>GameLogic: päivitetty tila
+
+    GameController->>GameLogic: update_game_state()
+    GameLogic->>Bean: evaluate_bean()
+    Bean-->>GameLogic: väri + yhdistelmätieto
+
+    GameLogic->>GameArea: tarkista yhdistelmät
+    GameArea-->>GameLogic: yhdistetyt pavut
+
+    GameLogic->>GameLogic: päivitä pisteet
+    GameLogic-->>GameController: uusi pisteetila
+
+    GameController->>GameUI: render(logic, area, launcher)
+    GameUI-->>GameController: valmis ruudunpäivitys
+```
