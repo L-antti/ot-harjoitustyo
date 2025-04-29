@@ -1,7 +1,7 @@
 # Vaatimusmäärittely
 
 ## Sovelluksen tarkoitus
-Sovellus on bubbleshooter tyylinen peli, jossa ammutaan papuja. Vierekkäin ammutut samanlaiset pavut kaikkoavat ja tuovat pisteitä. Peli päättyy, kun papuja kasaantuu pelialueen alareunaan asti. 
+Sovellus on bubbleshooter tyylinen peli, jossa ammutaan papuja. Vierekkäin ammutut samanlaiset pavut kaikkoavat ja tuovat pisteitä. Peli päättyy, kun papuja kasaantuu pelialueen alareunaan asti. Pelin päätyttyä pelaaja voi saada nimensä parhaiden pisteiden joukkoon. 
 
 ## Käyttäjät
 Pelissä on yhdenlaisia käyttäjiä.
@@ -13,7 +13,7 @@ Pelissä on yhdenlaisia käyttäjiä.
 * Pelialueen yläreunaan lisätään yksi rivi papuja, jossei kolmeen kierrokseen saa osumaa samanväriseen papuun. TEHTY
 * Pisteitä saa kolmen tai usemman papun yhdistämisestä. TEHTY
 * Pisteet näkyvät pelialueen vieressä. TEHTY
-* Pelin päätyttyä pisteet kirjataan pistetaulukkoon.
+* Pelin päätyttyä pisteet kirjataan pistetaulukkoon. TEHTY
 * Sovelluksessa on aloitusruutu, jossa voi tarkastella pistetaulukkoa tai siirtyä pelaamaan.
 
 
