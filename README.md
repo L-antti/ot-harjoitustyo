@@ -38,6 +38,7 @@ Ammu papuja ja kerää pisteitä!
    ```
 * **Luo testikattavuus raportin _htmlcov_-hakemistoon**:
    ```bash
+   poetry run invoke coverage
    poetry run invoke coverage-report
    ```
 * **Suorittaa Pylint tarkistukset**:
