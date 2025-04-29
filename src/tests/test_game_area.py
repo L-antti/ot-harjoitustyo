@@ -1,13 +1,10 @@
 import unittest
-import pygame
 from game_area import GameArea
 from settings import BEAN_COLORS
 
 
 class TestGameArea(unittest.TestCase):
     def setUp(self):
-
-        pygame.init()
         self.game_area = GameArea()
 
     def test_initialize_predefined_beans(self):
