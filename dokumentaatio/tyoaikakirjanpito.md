@@ -13,4 +13,7 @@
 | 8.4.| 4 |  Naapuroivien papujen mekaniikan muokkaus, testien tekeminen |
 | 14.4.| 6 |  Pelimekaniikan päivitys naapuroivien papujen poistoon |
 | 15.4.| 10 | Luokkien refaktorointi  |
-| | 34 | Tunnit yhteensä  |
+| 27.4.| 3 | Docstrings |
+| 28.4.| 4 | Highscoren toteutus |
+| 29.4.| 8 | Luokkien refaktorointi jatkoa ja testejä |
+| | 49 | Tunnit yhteensä  |
