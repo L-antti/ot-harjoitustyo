@@ -15,5 +15,5 @@
 | 15.4.| 10 | Luokkien refaktorointi  |
 | 27.4.| 3 | Docstrings |
 | 28.4.| 4 | Highscoren toteutus |
-| 29.4.| 8 | Luokkien refaktorointi jatkoa ja testejä |
-| | 49 | Tunnit yhteensä  |
+| 29.4.| 10 | Luokkien refaktoroinnin jatkoa, testejä ja dokumentaation päivitys |
+| | 51 | Tunnit yhteensä  |
