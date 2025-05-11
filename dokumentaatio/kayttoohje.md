@@ -20,17 +20,17 @@ poetry run invoke start
 
 Peli alkaa painamalla välilyöntiä.
 
-![](dokumentaatio/kuvat/aloitusruutu.png)
+![](kuvat/aloitusruutu.png)
 
 ## Pelin pelaaminen
 
 Tähtäystä säädetään nuolinäppäimillä oikealle ja vasemmalle. Ylösnuolella laukaistaan uusi papu. Jonossa näkyvät seuraavaksi tulevat ammukset. 
 Pisteitä saa 10 per poistettu papu. 
 
-![](dokumentaatio/kuvat/pelitila.png)
+![](kuvat/pelitila.png)
 
 ## Pelin päättyminen
 
 Peli päättyy kun kriittinen raja ylitetään. Tällöin on mahdollista lisätä nimensä High Score listalle.
 
-![](dokumentaatio/kuvat/nimiruutu.png)
+![](kuvat/nimiruutu.png)
