@@ -16,4 +16,7 @@
 | 27.4.| 3 | Docstrings |
 | 28.4.| 4 | Highscoren toteutus |
 | 29.4.| 10 | Luokkien refaktoroinnin jatkoa, testejä ja dokumentaation päivitys |
-| | 51 | Tunnit yhteensä  |
+| 5.5.| 12 | Luokkien refaktorointi uudelleen testikattavuuden parantamiseksi. |
+| 7.5.| 10 | Testien toteuttamista |
+| 11.5.| 5 | Dokumentaation saattaminen valmiiksi  |
+| | 78 | Tunnit yhteensä  |
