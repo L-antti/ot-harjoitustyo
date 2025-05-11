@@ -14,7 +14,7 @@ Pelissä on yhdenlaisia käyttäjiä.
 * Pisteitä saa kolmen tai usemman papun yhdistämisestä. TEHTY
 * Pisteet näkyvät pelialueen vieressä. TEHTY
 * Pelin päätyttyä pisteet kirjataan pistetaulukkoon. TEHTY
-* Sovelluksessa on aloitusruutu, jossa voi tarkastella pistetaulukkoa tai siirtyä pelaamaan.
+* Sovelluksessa on aloitusruutu, josta voi siirtyä pelaamaan. TEHTY
 
 
 ## Jatkokehitysideoita
