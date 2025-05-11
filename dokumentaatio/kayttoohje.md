@@ -31,6 +31,6 @@ Pisteitä saa 10 per poistettu papu.
 
 ## Pelin päättyminen
 
-Peli päättyy kun kriittinen raja ylitetään. Tällöin on mahdollista lisätä nimensä High Score listalle.
+Peli päättyy, kun pavut saavuttavat kentän alareunan. Tällöin on mahdollista lisätä nimensä tulostaulukkoon.
 
 ![](kuvat/nimiruutu.png)
