@@ -22,3 +22,9 @@
 * Lisätty HighscoreManager luokka.
 * Koodia refaktoroitu lisää. Sovelluslogiikka eriytetty käyttöliittymästä ja pelinohjauksesta.
 * Lisää testejä GameLogic ja GameController luokille.
+
+## Viikko 7
+* Jaettu GameController EventHandler ja GameLoop luokkiin.
+* Siirretty käyttöliittymää käsittelevä koodi Renderer-luokkaan.
+* Lisätty omat luokat pelinpäättymisen käsittelyyn, UI-kerrokseen GameOverView ja Controller-kerrokseen GameOverController.
+* Lisää testejä kaikille luokille.
