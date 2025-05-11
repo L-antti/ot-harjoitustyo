@@ -8,4 +8,4 @@ Käyttöliittymä perustuu Pygameen, joten sitä on testattu manuaalisesti eri t
 
 Yksikkötestauksen haaraumakattavuus on 75%. Testauksen ulkopuolelle on jätetty käyttöliittymä sekä index.py.
  
-![](dokumentaatio/kuvat/coverage.png)
+![](kuvat/coverage.png)
