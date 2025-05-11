@@ -1,5 +1,7 @@
 import unittest
+import math
 from sprites.launcher import Launcher
+from settings import BEAN_DEFAULT_SPEED
 
 
 class TestLauncher(unittest.TestCase):
@@ -19,6 +21,16 @@ class TestLauncher(unittest.TestCase):
 
         self.launcher.rotate(-200)
         self.assertEqual(self.launcher.angle, 10)
+
+    def test_get_launcher_velocity(self):
+        self.launcher.angle = 45
+        velocity = self.launcher.get_launch_velocity()
+        expected_velocity = [
+            BEAN_DEFAULT_SPEED * math.cos(math.radians(45)),
+            -BEAN_DEFAULT_SPEED * math.sin(math.radians(45))
+        ]
+        self.assertAlmostEqual(velocity[0], expected_velocity[0], places=5)
+        self.assertAlmostEqual(velocity[1], expected_velocity[1], places=5)
 
 
 if __name__ == "__main__":

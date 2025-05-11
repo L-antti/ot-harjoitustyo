@@ -3,7 +3,10 @@ import os
 
 
 class HighscoreManager:
+    """Handles loading, saving, and updating high scores."""
+
     def __init__(self, filepath="highscores.json", limit=10):
+        """Initializes the manager and loads scores from file."""
         self.filepath = filepath
         self.limit = limit
         self.highscores = self.load_scores()
@@ -33,4 +36,5 @@ class HighscoreManager:
         self.save_scores()
 
     def get_scores(self):
+        """ Returns the current high scores."""
         return self.highscores

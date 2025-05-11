@@ -1,10 +1,10 @@
 import math
 import pygame
-from settings import BEAN_DEFAULT_SPEED
+from settings import BEAN_DEFAULT_SPEED, SCREEN_WIDTH
 
 
 class Bean(pygame.sprite.Sprite):
-    """Represents a bean in the game, handling movement, collisions, and interactions."""
+    """Represents a single bean, handling movement and collisions."""
 
     def __init__(self, color, position):
         """Initializes a bean with a given color and position."""
@@ -23,25 +23,36 @@ class Bean(pygame.sprite.Sprite):
         self.velocity = [BEAN_DEFAULT_SPEED * math.cos(angle_rad),
                          -BEAN_DEFAULT_SPEED * math.sin(angle_rad)]
 
-    def update_neighbours(self, beans_group):
-        """Updates the list of neighboring beans that are within collision range."""
-        self.neighbours.empty()
+    def move(self):
+        """Updates bean's position and bounces off side walls."""
+        self.rect.x += self.velocity[0]
+        self.rect.y += self.velocity[1]
 
-        for bean in beans_group:
-            if bean != self and pygame.sprite.collide_circle_ratio(1.2)(self, bean):
-                self.neighbours.add(bean)
+        if self.rect.left <= 0 or self.rect.right >= SCREEN_WIDTH:
+            self.velocity[0] *= -1
 
-    def attach(self, beans_group):
-        """Attaches the bean to the given group and updates its neighbors."""
-        beans_group.add(self)
-        self.update_neighbours(beans_group)
+    def has_collided(self, beans_group):
+        """Returns True if this bean collides with another bean or hits the top."""
+        if self.rect.top <= 0:
+            return True
 
-    def update_position(self, y_spacing):
-        """Moves the bean downward when the game area shifts."""
-        self.rect.y += y_spacing
+        overlapping = pygame.sprite.spritecollide(
+            self, beans_group, False, pygame.sprite.collide_circle
+        )
+        return bool(overlapping)
+
+    def update(self, y_offset):
+        """Moves the bean downward by a certain offset."""
+        self.rect.y += y_offset
+
+    def stop(self):
+        """Stops the bean's movement."""
+        self.velocity = [0, 0]
 
     def __hash__(self):
+        """Returns a unique hash for the bean."""
         return id(self)
 
     def __eq__(self, other):
+        """Checks if two beans are the same."""
         return self is other

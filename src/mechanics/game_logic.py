@@ -1,7 +1,6 @@
-import pygame
 from game_state import GameState
 from sprites.bean import Bean
-from settings import SCREEN_WIDTH, LAUNCHER_POSITION, MAX_Y
+from settings import LAUNCHER_POSITION, MAX_Y
 
 
 class GameLogic:
@@ -60,35 +59,32 @@ class GameLogic:
 
         new_color = self.game_area.get_next_bean()
         self.current_bean = Bean(new_color, LAUNCHER_POSITION)
-        self.current_bean.set_velocity(launcher.angle)
+        self.current_bean.velocity = launcher.get_launch_velocity()
         self.transition_state(GameState.MOVING)
 
     def move_current_bean(self):
         """Moves the currently launched bean, handling collisions and physics."""
-        bean = self.current_bean
-        bean.rect.x += bean.velocity[0]
-        bean.rect.y += bean.velocity[1]
-
-        if bean.rect.left <= 0 or bean.rect.right >= SCREEN_WIDTH:
-            bean.velocity[0] *= -1
-
-        overlapping = pygame.sprite.spritecollide(
-            bean, self.game_area.beans, False, pygame.sprite.collide_circle)
-        if bean.rect.top <= 0 or overlapping:
-            bean.attach(self.game_area.beans)
-            bean.update_neighbours(self.game_area.beans)
-            bean.velocity = [0, 0]
-            self.transition_state(GameState.EVALUATING)
+        if self.current_bean:
+            bean = self.current_bean
+            bean.move()
+            if bean.has_collided(self.game_area.beans):
+                self.game_area.attach_bean(bean)
+                bean.stop()
+                self.transition_state(GameState.EVALUATING)
 
     def evaluate_bean(self):
         """Evaluates the launched bean and checks for scoring or row additions."""
         bean = self.current_bean
-        self.game_area.update()
         group = self.get_connected_same_color(bean)
+
+        same_color_neighbour = any(
+            neighbour.color == bean.color for neighbour in bean.neighbours)
 
         if len(group) >= 3:
             self.game_area.beans.remove(group)
             self.score += len(group) * 10
+            self.transition_state(GameState.IDLE, reset_failed_shots=True)
+        elif same_color_neighbour:
             self.transition_state(GameState.IDLE, reset_failed_shots=True)
         else:
             self.failed_shots += 1
@@ -110,11 +106,22 @@ class GameLogic:
         if visited is None:
             visited = set()
 
+        if start_bean in visited:
+            return []
+
         visited.add(start_bean)
         group = [start_bean]
 
         for neighbour in start_bean.neighbours:
-            if neighbour.color == start_bean.color and neighbour not in visited:
+            if neighbour.color == start_bean.color:
                 group.extend(self.get_connected_same_color(neighbour, visited))
 
         return group
+
+    def reset_game(self):
+        """Resets game to initial state."""
+        self.state = GameState.IDLE
+        self.current_bean = None
+        self.score = 0
+        self.failed_shots = 0
+        self.game_area.reset()
