@@ -126,10 +126,16 @@ Käyttöliittymä saa pelitilanteen tilatiedot (GameState) ohjainkerrokselta, jo
 Käyttöliittymä on edelleen jaettu omiin osakomponentteihinsa: esimerkiksi pelin päättymisestä vastaava näkymä on erillisessä luokassa. Pelinäkymän piirtämisestä vastaava luokka on tiiviisti yhteydessä pelihahmokerroksen Bean-luokkaan, koska se käsittelee papujen piirtämistä ruudulle.
 Lisäksi käyttöliittymä hyödyntää pygame-kirjaston renderöintiominaisuuksia suoraan, kuten display.flip() ja fonttipiirtoa.
 
+## Tietojen tallentaminen
+Kymmenen parasta tulosta tallennetaan nimen ja pistemäärän kanssa highscores.json tiedostoon.
+
 ## Päätoiminnallisuudet
 Päätöiminnallisuudet esitettynä sekvenssikaavioina
 
 ### Pelin aloitus
+
+Pelin alussa pelaaja siirtyy alkunäkymästä pelitilaan painamalla välilyöntiä. Tällöin alustetaan pelilogiikka ja luodaan pelikentälle ensimmäiset pavut. Renderer piirtää alkuasetelman ruudulle, mukaan lukien pavut, pisteet ja laukaisija.
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -182,6 +188,9 @@ sequenceDiagram
 ```
 
 ### Pelaaminen
+
+Pelaaminen tapahtuu jatkuvassa silmukassa, jossa käsitellään syötteitä, päivitetään pelilogiikkaa ja piirretään näkymä. Pelaaja voi kääntää laukaisijaa ja ampua papuja. Papu liikkuu ja törmää muihin papuihin, minkä jälkeen päivitetään kiinnittyneet naapurit, tarkastellaan pisteiden saamista tai uuden rivin lisäämistä epäonnistuneiden laukausten perusteella.
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -261,6 +270,8 @@ sequenceDiagram
 
 
 ### Pelin päättyminen
+
+Peli päättyy, jos joku papu saavuttaa kentän alareunan. Tällöin näytetään pelinlopetusnäkymä ja pelaajalta pyydetään nimi tulostaulukkoa varten. Jos nimi annetaan, se tallennetaan, ja näytetään parhaat tulokset. Lopuksi peli odottaa pelaajan syötettä uuden pelin aloittamiseksi.
 ```mermaid
 sequenceDiagram
     autonumber
